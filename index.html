@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Form Validator</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+      :root {
+        --success-color: #2ecc71;
+        --error-color: #e74c3c;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #fff;
+        font-family: 'Open Sans', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        /* width: 400px; */
+        width: 70%;
+        padding: 30px 40px;
+
+      }
+
+      /* .form {
+        padding: 30px 40px;
+      } */
+
+      .form-control {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        position: relative;
+        display: flex;
+        width: 500px;
+        justify-content: space-between;
+
+      }
+
+      .form-control label {
+        color: #777;
+        display: block;
+        margin-bottom: 5px;
+        /* margin-right: 52px */
+      }
+
+      .form-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        width: 70%;
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .form-control input:focus {
+        outline: 0;
+        border-color: #777;
+      }
+
+      .form-control.success input {
+        border-color: var(--success-color);
+      }
+
+      .form-control.error input {
+        border-color: var(--error-color);
+      }
+
+      .form-control small {
+        color: var(--error-color);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+      }
+
+      .form-control.error small {
+        visibility: visible;
+      }
+
+      .form button {
+        cursor: pointer;
+        background-color: #3498db;
+        border: 2px solid #3498db;
+        border-radius: 4px;
+        color: #fff;
+        display: block;
+        font-size: 16px;
+        padding: 10px;
+        margin-top: 20px;
+        width: 100%;
+      }
+      .hold__logo {
+        text-align: center;
+      }
+      .hold__logo img {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hold__logo">
+        <img style="margin-left: 50px;" src="https://directdebit.webresults.ie/img/WebResultsLogo2.jpg" alt="">
+      </div>
+      <div class="hold__content">
+        <div class="creditro_info">
+          <table style="text-align: left;">
+            <tr>
+              <th width="50%"><span style="font-size: 20px;">Creditor Company: </span></th>
+              <th width="50%" style="padding-left:90px;"><span style="font-size: 20px; font-weight: 300;">WebResults Ltd.</span></th>
+              </tr>
+          </table>
+          <table style="text-align: left;">
+            <tr>
+              <th width="50%"><span style="font-size: 20px;">Creditro Name:</span></th>
+              <th width="50%" style="padding-left:90px;"><span style="font-size: 20px; font-weight: 300;">Rosey Broderick</span></th>
+              </tr>
+          </table>
+          <table style="text-align: left;">
+            <tr>
+              <th width="50%"><span style="font-size: 20px;">Creditor Identifier:</span></th>
+              <th width="50%" style="padding-left:95px;"><span style="font-size: 20px; font-weight: 300;">IE77ZZZ362202</span></th>
+              </tr>
+          </table>
+          <table style="text-align: left;">
+            <tr>
+              <th width="50%"><span style="font-size: 20px;">Creditor Street Name & Number:</span></th>
+              <th width="50%" style="padding-left:25px;"><span style="font-size: 20px; font-weight: 300;">Browneshill Ave,</span></th>
+              </tr>
+          </table>
+          <table style="text-align: left;">
+            <tr>
+              <th width="50%"><span style="font-size: 20px;">Creditor Postcode & City: </span></th>
+              <th width="50%" style="padding-left:85px;"><span style="font-size: 20px; font-weight: 300;">Carlow R93 NY90</span></th>
+              </tr>
+          </table>
+        </div>
+
+
+        <div class="hold_content_two">
+          <h5 style="font-size: 16px; margin-bottom: 0;">SEPA Business-to-Business Direct Debit Mandate</h5>
+          <p style="font-size: 15px;">
+            By signing this mandate form, you authorise WebResults Ltd to send instructions to your bank to debit your account in accordance with the instructions from WebResults Ltd.
+            <br> <br>
+            This mandate is only intended for business-to-business transactions. You are not entitled to a refund from your bank after your account has been debited, but you are entitled to request your bank not to debit your account up until the day on which the payment is due. Please contact your bank for detailed procedures in such a case.
+          </p>
+        </div>
+
+        <div class="hold_content_two">
+          <h5 style="font-size: 14px; margin-bottom: 0; font-weight: bold;">Mandate Reference: </h5>
+          <p style="font-size: 13px;">
+            To be completed
+            <br>
+            by the Creditor
+          </p>
+        </div>
+
+        <div class="hold_content_two">
+          <h5 style="font-size: 14px; margin-bottom: 0; font-weight: bold;">Mandate Reference: </h5>
+          <p style="font-size: 13px;">
+            To be completed by the Debtor
+            <br>
+            Completion of all fields are mandatory. If more than one signature required by bank, please include additional names & signatures in the fields below
+          </p>
+        </div>
+      </div>
+      <form id="form" class="form">
+        <table style="text-align: left;">
+          <tr>
+              <th width="30%"><span style="font-size: 14px; color: blue; font-weight: 300;">Type of Payment*: </span></th>
+              <th width="30%" style="padding-left:90px;"><span style="font-size: 12px; font-weight: 300; color: blue;">Recurrent </span></th>
+              <th width="30%" style="padding-left:90px;"><span style="font-size: 12px; font-weight: 300; color: blue;">Once Off  </span></th>
+            </tr>
+            <tr>
+              <th style="font-size: 13px; color: blue;">Debtor Identification:</th>
+            </tr>
+        </table>
+
+        <!-- form -->
+        <div class="form-control">
+            <label for="username">Name</label>
+            <input type="text" id="username" placeholder="Enter username" />
+          <small style="margin-left: 149px;">Error message</small>
+        </div>
+        <div class="form-control">
+          <label for="username">Address</label>
+          <input type="text"  placeholder="Address" />
+        </div>
+        <div class="form-control">
+          <label for="username">Postcode</label>
+          <input type="text"  placeholder="Postcode" />
+      </div>
+        <div class="form-control">
+          <label for="username">City</label>
+          <input type="text"  placeholder="City" />
+        </div>
+        <div class="form-control">
+          <label for="username">Amount in €:</label>
+          <input type="text"  placeholder="Amount" />
+        </div>
+        <div class="form-control">
+          <label for="username">IBAN Number*</label>
+          <input type="text"  placeholder="IBAN Number*" />
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="Enter email" />
+          <small style="margin-left: 148px;">Error message</small>
+        </div>
+        <div class="form-control">
+          <label>Date</label>
+          <input type="text"  placeholder="Date" />
+        </div>
+        <div class="form-control">
+          <label>Location (Country)</label>
+          <input type="text"  placeholder="Location (Country)" />
+        </div>
+        <div class="form-control">
+          <label>Signature
+            (Draw Signature(s))*:</label>
+          <input type="text"  placeholder="Sig" />
+        </div>
+        <div class="form-control">
+          <p>
+            *all in purple above would have fields on the same line that are not huge but are aligned and laid out with the name of the field in the actual field if that works including the IBAN. (It won’t work for “type of payment” or signature I don’t think, but for the others) <br>
+            Fields aligned, with enter name, enter address etc in the actual field. Overall more compact highlightling what is to be completed by Debtor
+
+          </p>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById('form');
+      const username = document.getElementById('username');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const password2 = document.getElementById('password2');
+
+      // Show input error message
+      function showError(input, message) {
+       const formControl = input.parentElement;
+        formControl.className = 'form-control error';
+       const small = formControl.querySelector('small');
+        small.innerText = message;
+      }
+
+      // Show success outline
+      function showSuccess(input) {
+       const formControl = input.parentElement;
+        formControl.className = 'form-control success';
+      }
+
+      // Check email is valid
+      function checkEmail(input) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (re.test(input.value.trim())) {
+        showSuccess(input);
+      } else {
+        showError(input, 'Email is not valid');
+      }
+      }
+
+      // Check required fields
+      function checkRequired(inputArr) {
+        inputArr.forEach(function(input) {
+      if (input.value.trim() === '') {
+         showError(input, `${getFieldName(input)} is required`);
+      } else {
+        showSuccess(input);
+      }
+      });
+      }
+
+      // Check input length
+      function checkLength(input, min, max) {
+      if (input.value.length < min) {
+      showError(
+         input,
+          `${getFieldName(input)} must be at least ${min} characters`
+      );
+      } else if (input.value.length > max) {
+       showError(
+        input,
+        `${getFieldName(input)} must be less than ${max} characters`
+      );
+      } else {
+        showSuccess(input);
+      }
+      }
+
+      // Check passwords match
+      function checkPasswordsMatch(input1, input2) {
+      if (input1.value !== input2.value) {
+        showError(input2, 'Passwords do not match');
+      }
+      }
+
+      // Get fieldname
+      function getFieldName(input) {
+         return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+      }
+
+      // Event listeners
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        checkRequired([username, email]);
+        checkLength(username, 3, 15);
+        checkEmail(email);
+      });
+
+    </script>
+  </body>
+</html>
